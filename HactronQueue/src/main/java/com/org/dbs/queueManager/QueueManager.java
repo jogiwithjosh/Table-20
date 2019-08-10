@@ -100,12 +100,12 @@ public class QueueManager {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 		if (queues.containsKey(topic)) {
 			response.put("success",true);
-			response.put("topic-messages", new ArrayList<String>(queues.get(topic).queue));
+			response.put("messages", new ArrayList<String>(queues.get(topic).queue));
 			response.put("message", "");
 			return response;
 		}
 		response.put("success",false);
-		response.put("topic-messages", new ArrayList<String>());
+		response.put("topic", new ArrayList<String>());
 		response.put("message", "topic doesn't exist.");
 		return response;
 	}
@@ -114,12 +114,12 @@ public class QueueManager {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 		if (queues.containsKey(topic)) {
 			response.put("success",true);
-			response.put("topic-message", queues.get(topic).queue.poll());
+			response.put("topicMessage", queues.get(topic).queue.poll());
 			response.put("message", "");
 			return response;
 		}
 		response.put("success",false);
-		response.put("topic-messages", new ArrayList<String>());
+		response.put("topicMessage", new ArrayList<String>());
 		response.put("message", "topic doesn't exist.");
 		return response;
 	}
