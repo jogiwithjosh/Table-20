@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css" href="../CSS/Landing.css">
+
+<!-- Bootstrap related cdn begin-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<!-- Bootstrap related cdn end-->
+
+<!-- jquery cdn -->
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  
+<script src="../JS/Landing.js"></script>
+
+</head>
+<body>
+
+<div class="hero-image"></div>
+
+<div class="container" style="margin-top:2%">
+
+	<div class="panel-group">
+	
+	<!--create queue panel begin -->
+	  <div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title">
+			<a id="createQueueAnchor" data-toggle="collapse" href="#createQueuePanel">Click me to create a Queue</a>
+		  </h4>
+		</div>
+		<div id="createQueuePanel" class="panel-collapse collapse">
+		  <div class="panel-body">
+			  <div class ="container">
+				<div class= "row">
+					<div class="col-lg-6">
+						<button type="button" id="createQueuButton" class="btn btn-primary">Create Queue</button>
+					</div>
+				</div>
+				<div class= "row createQueueForm" style="display:none" >
+					<form class="form-inline" action="/action_page.php">
+						  <div class="form-group">
+							<label for="email">Queue Name:  </label>
+							<input type="text" class="form-control" id="">
+						  </div>
+						  <div class="form-group">
+							<label for="pwd">Queue Size: </label>
+							<input type="password" class="form-control" id="pwd">
+						  </div>
+						  <button class='btn btn-primary createQueueSubmit' type="submit">Submit</button>			 
+					</form>
+				</div>			
+			</div>
+		 </div>
+		  
+		</div>
+	  </div>
+	  <!--create queue panel end -->
+	  
+	  <!--add queue element panel begin -->
+	  <div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title">
+			<a id="addQueueAnchor" data-toggle="collapse" href="#addQueueElementPanel">Click me to add a Queue element</a>
+		  </h4>
+		</div>
+		<div id="addQueueElementPanel" class="panel-collapse collapse">
+		  <div class="panel-body">
+			  <div class ="container">
+				<div class= "row">
+					<div class="col-lg-6">
+						<button type="button" id="addQueueElementButton" class="btn btn-primary">Add a Queue element</button>
+					</div>
+				</div>
+				<div class= "row addQueueElementForm" style="display:none" >
+					<form class="form-inline" action="/action_page.php">
+						  <div class="form-group">
+							<label for="email">Queue Name:  </label>
+							<input type="text" class="form-control" id="">
+						  </div>
+						  <div class="form-group">
+							<label for="pwd">Element: </label>
+							<input type="password" class="form-control" id="pwd">
+						  </div>
+						  <button class='btn btn-primary createQueueSubmit' type="submit">Submit</button>			 
+					</form>
+				</div>			
+			</div>
+		 </div>
+		  
+		</div>
+	  </div>
+	  
+	  <!--add queue element panel end -->
+	  
+	  <!--remove queue element panel begin -->
+	  <div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title">
+			<a id="removeQueueAnchor" data-toggle="collapse" href="#removeQueueElementPanel">Click me to remove a Queue element</a>
+		  </h4>
+		</div>
+		<div id="removeQueueElementPanel" class="panel-collapse collapse">
+		  <div class="panel-body">
+			  <div class ="container">
+				<div class= "row">
+					<div class="col-lg-6">
+						<button type="button" id="removeQueueElementButton" class="btn btn-primary">Remove Queue element</button>
+					</div>
+				</div>
+				<div class= "row removeQueueElementForm" style="display:none" >
+					<form class="form-inline" action="/action_page.php">
+						  <div class="form-group">
+							<label for="email">Queue Name:  </label>
+							<input type="text" class="form-control" id="">
+						  </div>					
+						  <button class='btn btn-primary createQueueSubmit' type="submit">Submit</button>			 
+					</form>
+				</div>			
+			</div>
+		 </div>
+		  
+		</div>
+	  </div>
+	  
+	  <!--remove queue element panel end -->
+	  
+	  <!--check queue element panel begin -->
+	  <div class="panel panel-default">
+		<div class="panel-heading">
+		  <h4 class="panel-title">
+			<a id="checkQueueAnchor" data-toggle="collapse" href="#checkQueueElementPanel">Click me to Check Queue status</a>
+		  </h4>
+		</div>
+		<div id="checkQueueElementPanel" class="panel-collapse collapse">
+		  <div class="panel-body">
+			  <div class ="container">
+				<div class= "row checkQueueElementForm" >
+					<form class="form-inline" action="/action_page.php">
+						  <div class="form-group">
+							<label for="queueName">Queue Name:  </label>
+							<input type="text" class="form-control" id="">
+						  </div>	
+						<label class="radio-inline"><input type="radio" name="optradio" value="checkFull" checked>Check Full</label>
+						<label class="radio-inline"><input type="radio" name="optradio" value="checkEmpty">Check Empty</label>						  
+						  <button class='btn btn-primary createQueueSubmit' type="submit">Submit</button>			 
+					</form>
+				</div>			
+			</div>
+		 </div>
+		  
+		</div>
+	  </div>
+	  
+	  <!--check queue element panel end -->
+	  
+	</div>
+
+</div>
+
+</body>
+</html>
