@@ -50,9 +50,15 @@ public class QueueManager {
 		HashMap<String, Object> response = new HashMap<String, Object>();
 		if (queues.containsKey(topic)) {
 			QueueDetails queue = queues.get(topic);
-			queue.queue.add(element);
-			response.put("success", true);
-			response.put("message", "message published successfully.");
+			
+			if(BigInteger.valueOf(queue.queue.size()).compareTo(queue.max_size) < 0) {
+				queue.queue.add(element);
+				response.put("success", true);
+				response.put("message", "message published successfully.");
+				return response;
+			}
+			response.put("success", false);
+			response.put("message", "queue is over populated.");
 			return response;
 		}
 		response.put("success", false);
@@ -74,6 +80,18 @@ public class QueueManager {
 		response.put("messages", "no queues present.");
 		return response;
 		
+	}
+	
+	public static HashMap<String, Object> registerConsumer(String topic){
+		HashMap<String, Object> response = new HashMap<String, Object>();
+		if (queues.containsKey(topic)) {
+			response.put("socket-url", "");
+			response.put("message", "subscribe to the url.");
+			return response;
+		}
+		response.put("socket-url", "");
+		response.put("message", "topic doesn't exist.");
+		return response;
 	}
 	 
 }

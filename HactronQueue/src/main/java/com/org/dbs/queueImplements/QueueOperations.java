@@ -1,4 +1,4 @@
-package com.org.dbs.queueOperations;
+package com.org.dbs.queueImplements;
 
 import java.math.BigInteger;
 import java.util.HashMap;
@@ -15,6 +15,12 @@ import com.org.dbs.queueManager.QueueManager;
 
 @RestController
 public class QueueOperations {
+
+	@RequestMapping("/hello")
+	@ResponseBody
+	public String createQueue(@RequestParam String topic){
+		return topic;
+	}
 	
 	@GetMapping("/create-queue")
 	@ResponseBody
@@ -22,13 +28,13 @@ public class QueueOperations {
 		return QueueManager.createQueue(topic, size);
 	}
 	
-	@GetMapping("/delete-queue")
+	@PostMapping("/delete-queue")
 	@ResponseBody
 	public HashMap<String, Object> deleteQueue(@RequestParam String topic, @RequestParam BigInteger size){
 		return QueueManager.deleteQueue(topic);
 	}
 	
-	@GetMapping("/add-element")
+	@PostMapping("/add-element")
 	@ResponseBody
 	public HashMap<String, Object> addElement(@RequestParam String topic, @RequestParam String element){
 		return QueueManager.addElement(topic, element);
