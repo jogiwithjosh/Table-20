@@ -12,4 +12,10 @@ GET http://d57e3509.ngrok.io/list-topics
 
 GET http://d57e3509.ngrok.io/register-consumer
 
+GET http://d57e3509.ngrok.io/browse-messages?topic=<name>
+
+GET http://d57e3509.ngrok.io/consumer?topic=<name>
+
+GET http://d57e3509.ngrok.io/queue-status?topic=<name>
+
 

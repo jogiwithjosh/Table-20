@@ -85,13 +85,61 @@ public class QueueManager {
 	public static HashMap<String, Object> registerConsumer(String topic){
 		HashMap<String, Object> response = new HashMap<String, Object>();
 		if (queues.containsKey(topic)) {
-			response.put("socket-url", "");
+			response.put("success", true);
+			response.put("socket-url", "http://d57e3509.ngrok.io:6000");
 			response.put("message", "subscribe to the url.");
 			return response;
 		}
+		response.put("success", false);
 		response.put("socket-url", "");
 		response.put("message", "topic doesn't exist.");
 		return response;
 	}
-	 
+	
+	public static HashMap<String, Object> browseMessages(String topic){
+		HashMap<String, Object> response = new HashMap<String, Object>();
+		if (queues.containsKey(topic)) {
+			response.put("success",true);
+			response.put("topic-messages", new ArrayList<String>(queues.get(topic).queue));
+			response.put("message", "");
+			return response;
+		}
+		response.put("success",false);
+		response.put("topic-messages", new ArrayList<String>());
+		response.put("message", "topic doesn't exist.");
+		return response;
+	}
+	
+	public static HashMap<String, Object> Consumer(String topic){
+		HashMap<String, Object> response = new HashMap<String, Object>();
+		if (queues.containsKey(topic)) {
+			response.put("success",true);
+			response.put("topic-message", queues.get(topic).queue.poll());
+			response.put("message", "");
+			return response;
+		}
+		response.put("success",false);
+		response.put("topic-messages", new ArrayList<String>());
+		response.put("message", "topic doesn't exist.");
+		return response;
+	}
+	
+	public static HashMap<String, Object> queueStatus(String topic){
+		HashMap<String, Object> response = new HashMap<String, Object>();
+		if (queues.containsKey(topic)) {
+			response.put("success",true);
+			response.put("name", queues.get(topic).name);
+			response.put("max-size", queues.get(topic).max_size);
+			response.put("current-size", queues.get(topic).queue.size());
+			response.put("message", "");
+			return response;
+		}
+		response.put("success", false);
+		response.put("name", "");
+		response.put("max-size", 0);
+		response.put("current-size", 0);
+		response.put("message", "topic doesn't exist.");
+		return response;
+	}
+
 }
